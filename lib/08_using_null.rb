@@ -89,8 +89,6 @@ def num_teachers_and_mobiles
     COUNT(teachers.name), COUNT(teachers.mobile)
   FROM
     teachers
-  -- WHERE
-  --   mobile IS NOT NULL
   SQL
 end
 
