@@ -70,19 +70,6 @@ def heart_tracks
   # the word 'Heart' (albums with no such tracks need not be shown). Order by
   # the number of such tracks.
   execute(<<-SQL)
-  -- SELECT
-  --   albums.title, COUNT(tracks.*)--COUNT(*)
-  -- FROM
-  --   albums
-  -- JOIN
-  --   tracks ON tracks.album = albums.asin
-  -- WHERE
-  --   tracks.song LIKE '%Heart%'
-  -- GROUP BY
-  --   albums.title
-  -- ORDER BY
-  --   COUNT(tracks.*) DESC  -- COUNT(*) DESC
-  -- SQL
 
     SELECT
       albums.title, COUNT(*)
@@ -154,10 +141,6 @@ def best_value
     albums
   JOIN
     tracks ON tracks.album = albums.asin
-  -- WHERE
-  --   albums.price < 50
-  -- GROUP BY
-  --   tracks.album
   GROUP BY
     albums.asin -- can't use tracks.album. WHY?
   HAVING
@@ -177,7 +160,7 @@ def top_track_counts
   JOIN
     tracks ON tracks.album = albums.asin
   GROUP BY
-    albums.asin -- NOT tracks.album
+    albums.asin 
   ORDER BY
     COUNT(*) DESC
   LIMIT 10
