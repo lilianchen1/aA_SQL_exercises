@@ -1,6 +1,6 @@
 # SQL exercises
 
 * Select from multiple tables
-* aggregate function
+* aggregate functions
 * joins (inner join, left outer join)
 * subqueries
